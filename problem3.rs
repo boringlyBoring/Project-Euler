@@ -1,4 +1,7 @@
+use std::time::Instant;
+
 fn main() {
+    let start_time_block = Instant::now();
     let num: u64 = 600851475143;
     let limit = (num as f64).sqrt() as usize;
     let mut prime = vec![true; limit + 1];
@@ -22,4 +25,6 @@ fn main() {
         }
         j -= 1;
     }
+    let duration = start_time_block.elapsed();
+    println!("Duration: {duration:?}");
 }
